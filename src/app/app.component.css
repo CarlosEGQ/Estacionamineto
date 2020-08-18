@@ -1,0 +1,30 @@
+.Cursor{
+    cursor: pointer;
+}
+.gris{
+    color: rgba(255, 255, 255, 0.5);
+}
+footer{
+
+    text-align: center;
+    color: white;
+    align-self: flex-end;
+    width: 100%;
+}
+.tamano{
+ width: 40px;   
+ margin-right: 10px;
+}
+.tamano2{
+    width: 24px;   
+    margin-right: 5px;
+}
+.quitarformatolista{
+    list-style:none;
+    margin-right: 5px;
+}
+
+.color{
+    background-color: white;
+    border-radius: 10%;
+}
