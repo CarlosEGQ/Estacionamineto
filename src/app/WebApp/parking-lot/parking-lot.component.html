@@ -1,1 +1,46 @@
-<p>parking-lot works!</p>
+<br>
+<h1>Escionamiento</h1>
+<br>
+
+<table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Estacionamiento No.1</th>
+        <th></th>
+        <th scope="col">Estacionamiento No.2</th>
+        <th></th>
+        <th scope="col">Estacionamiento No.3</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <th scope="col"></th>        
+        
+            <th scope="col" class="disponible" *ngIf="EstacionNo1">Disponible</th>
+            <th scope="col" class="ocupado" *ngIf="!EstacionNo1">Ocupado</th>
+            
+        <th></th>
+
+        <th scope="col" class="disponible" *ngIf="EstacionNo2">Disponible</th>
+            <th scope="col" class="ocupado" *ngIf="!EstacionNo2">Ocupado</th>
+
+        <th></th>
+
+        <th scope="col" class="disponible" *ngIf="EstacionNo3">Disponible</th>
+            <th scope="col" class="ocupado" *ngIf="!EstacionNo3">Ocupado</th>
+
+        <th></th>
+    </tbody>
+    <tbody>
+      <tr>
+        <th scope="row">Entrada</th>
+        <td>Calle</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <button (click)="cambio(1)">No1</button>
+  <button (click)="cambio(2)">No2</button>
+  <button (click)="cambio(3)">No3</button>

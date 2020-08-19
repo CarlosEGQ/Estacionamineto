@@ -1,1 +1,276 @@
-<p>register works!</p>
+<div class="container-fluid register">
+    <div class="row">
+  
+      <!--Parte izquierda-->
+      <div class="col-md-2 register-left">
+  
+        <!-- <img src="../../../assets/img/register.png" alt="" /> -->
+        <h3>Crea tu cuenta</h3>
+  
+  
+  
+        <p>Ya tienes una cuenta?</p>
+        <input type="submit" name="" routerLink="../Login" value="Iniciar Sesion" />
+  
+      </div>
+  
+      <!--Parte izquierda-->
+      <div class="col-md-10 register-right">
+      
+      <hr style="color:black">
+        <!--Form-->
+        <form class="registerForm" name="registerForm" [formGroup]="registerForm" (ngSubmit)="onSaveForm()">
+            
+            <div class="row">
+                <div class="col-md-2">
+                    
+                <div class="row">
+                    <!--Photo-->
+                    <div class="form-group col-md-12">
+                      <div class="profile-header-container">
+                        <div class="profile-header-img">
+                          <!-- <img class="img-circle"
+                            src="../../../assets/img/login/avatar.svg" /> -->
+                          <!-- badge -->
+                          <div class="rank-label-container">
+                            <!-- <button type="file" class="btn btn label label-default rank-label">Agregar foto</button> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>   
+                <div class="col-md-10 mt-md-5">
+                
+                <!--Fila 1-->
+                <div class="form-group col-md-12">
+                    <div class="row">
+                       <!--Name-->
+                        <div class="col-md-6">
+                            <div class="has-feedback">
+                              
+                                <input type="text" class="form-control" formControlName="name" placeholder="Nombre"
+                                  [ngStyle]="{'border-color': name.invalid && (name.dirty || name.touched) ? 'red' : (name.valid ? '#5cb85c' : null) }" />
+                                
+                                  <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                                  <div class="container-error-message" *ngIf="name.errors.required">
+                                    <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                    <div class="container-error-message" *ngIf="name.errors.required">
+                                      <i class="fas fa-times"></i><a class="message">El campo es requerido</a>
+                                    </div>
+                                  </div>
+                                  <div class="container-error-message" *ngIf="name.errors.minlength">
+                                    <i class="fas fa-times"></i><a class="message">El minimo requerido es 3</a>
+                                  </div>
+                                </div>
+                                <div *ngIf="name.valid">
+                                  <span class="fas fa-check form-control-feedback" style="color: #5cb85c;"></span>
+                                </div>
+                              </div>
+                        </div>
+                         <!--LastName-->
+                        <div class="col-md-6">
+                            <div class="has-feedback">
+                                <input type="text" class="form-control" formControlName="lastName" placeholder="Apellidos"
+                                  [ngStyle]="{'border-color': lastName.invalid && (lastName.dirty || lastName.touched) ? 'red' : (lastName.valid ? '#5cb85c' : null) }" />
+                                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                  <div class="container-error-message" *ngIf="lastName.errors.required">
+                                    <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                    <div class="container-error-message" *ngIf="lastName.errors.required">
+                                      <i class="fas fa-times"></i><a class="message">El campo es requerido</a>
+                                    </div>
+                                  </div>
+                                  <div class="container-error-message" *ngIf="lastName.errors.minlength">
+                                    <i class="fas fa-times"></i><a class="message">El minimo requerido es 3</a>
+                                  </div>
+                                </div>
+                                <div *ngIf="lastName.valid">
+                                  <span class="fas fa-check form-control-feedback" style="color: #5cb85c;"></span>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!--Fila 1-->
+  
+                  <!--Fila 2-->
+                  <div class="form-group col-md-12">
+                  <div class="row">
+                      <!--Email-->
+                        <div class="col-md-6">
+                            <div class="has-feedback">
+                                <input type="text" class="form-control" formControlName="email" placeholder="Correo Electronico"
+                                  [ngStyle]="{'border-color': email.invalid && (email.dirty || email.touched) ? 'red' : (email.valid ? '#5cb85c' : null) }" />
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                                  <div class="container-error-message" *ngIf="email.errors.required">
+                                    <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                    <div class="container-error-message" *ngIf="email.errors.required">
+                                      <i class="fas fa-times"></i><a class="message">El campo es requerido</a>
+                                    </div>
+                                  </div>
+                                  <div class="container-error-message" *ngIf="email.errors.pattern">
+                                    <i class="fas fa-times"></i><a class="message">No es una direccion valida</a>
+                                  </div>
+                                </div>
+                                <div *ngIf="email.valid">
+                                  <span class="fas fa-check form-control-feedback" style="color: #5cb85c;"></span>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="has-feedback">
+                                <input type="text" class="form-control" formControlName="phone" placeholder="Telefono"
+                                  [ngStyle]="{'border-color': phone.invalid && (phone.dirty || phone.touched) ? 'red' : (phone.valid ? '#5cb85c' : null) }" />
+                                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                                  <div class="container-error-message" *ngIf="phone.errors.required">
+                                    <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                    <div class="container-error-message" *ngIf="phone.errors.required">
+                                      <i class="fas fa-times"></i><a class="message">El campo es requerido</a>
+                                    </div>
+                                  </div>
+                                  <div class="container-error-message" *ngIf="phone.errors.pattern">
+                                    <i class="fas fa-times"></i><a class="message">Solo se permiten numeros</a>
+                                  </div>
+                                  <div class="container-error-message" *ngIf="phone.errors.minlength">
+                                    <i class="fas fa-times"></i><a class="message">Debe contener minimo 8 caracteres</a>
+                                  </div>
+                                </div>
+                                <div *ngIf="phone.valid">
+                                  <span class="fas fa-check form-control-feedback" style="color: #5cb85c;"></span>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!--Fila 2-->
+  
+                  <!--Fila 3-->
+                  <div class="form-group col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="has-feedback">
+                                <input type="password" class="form-control" formControlName="password" placeholder="Contraseña"
+                                  [ngStyle]="{'border-color': password.invalid && (password.dirty || password.touched) ? 'red' : (password.valid ? '#5cb85c' : null) }" />
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                                  <div class="container-error-message" *ngIf="password.errors.required">
+                                    <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                    <div class="container-error-message" *ngIf="password.errors.required">
+                                      <i class="fas fa-times"></i><a class="message">El campo es requerido</a>
+                                    </div>
+                                  </div>
+                                  <div class="container-error-message" *ngIf="password.errors.minlength">
+                                    <i class="fas fa-times"></i><a class="message">El minimo requerido es 8 caracteres</a>
+                                  </div>
+                                </div>
+                                <div *ngIf="password.valid">
+                                  <span class="fas fa-check form-control-feedback" style="color: #5cb85c;"></span>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="has-feedback">
+                                <input type="password" class="form-control" formControlName="password2" placeholder="Confirmar Contraseña"
+                                  [ngStyle]="{'border-color': password2.invalid && (password2.dirty || password2.touched) ? 'red' : (password2.valid ? '#5cb85c' : null) }" />
+                                <div *ngIf="password2.invalid && (password2.dirty || password2.touched)">
+                                  <div class="container-error-message" *ngIf="password2.errors.required">
+                                    <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                    <div class="container-error-message" *ngIf="password2.errors.required">
+                                      <i class="fas fa-times"></i><a class="message">El campo es requerido</a>
+                                    </div>
+                                  </div>
+                                  <div class="container-error-message" *ngIf="password2.errors.minlength">
+                                    <i class="fas fa-times"></i><a class="message">El minimo requerido es 8 caracteres</a>
+                                  </div>
+                                </div>
+                                <div *ngIf="password2.valid">
+                                  <span class="fas fa-check form-control-feedback" style="color: #5cb85c;"></span>
+                                </div>
+                                <div *ngIf="">
+                                    <i class="fas fa-times"></i><a class="message">la contraseña no coincide</a>
+                                  </div>
+                              </div>
+                        </div>
+                    </div>
+                   </div>
+                    <!--Fila 3-->
+  
+                     <!--Fila 4-->
+                   <div class="form-group col-md-12">
+                      <div class="row">
+                          <div class="col-md-6">
+                                  <select class="form-control" formControlName="gender">
+                                    <option value="" selected disabled>Genero</option>
+                                    <option>Masculino</option>
+                                    <option>Femenino</option>
+                                    <option>No binario</option>
+                                  </select>            
+                          </div>
+                          <div class="col-md-6">
+                              <input type="date" class="form-control" formControlName="birthDate" />
+                          </div>
+                      </div>
+                    </div>
+                    <!--Fila 4-->
+  
+                    <!--Fila5-->
+                    <div class="form-group col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="has-feedback">
+                                    <input type="text" class="form-control" formControlName="city" placeholder="Ciudad"
+                                      [ngStyle]="{'border-color': city.invalid && (city.dirty || city.touched) ? 'red' : (city.valid ? '#5cb85c' : null) }" />
+                                    <div *ngIf="city.invalid && (city.dirty || city.touched)">
+                                      <div class="container-error-message" *ngIf="city.errors.required">
+                                        <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                        <div class="container-error-message" *ngIf="city.errors.required">
+                                          <i class="fas fa-times"></i><a class="message">El campo es requerido</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div *ngIf="city.valid">
+                                      <span class="fas fa-check form-control-feedback" style="color: #5cb85c;"></span>
+                                    </div>
+                                  </div>     
+                            </div>
+                            <div class="col-md-6">
+  
+                            </div>
+                        </div>
+                      </div>
+                      
+  
+                      <div class="form-group col-md-12">
+                        <div class="row justify-content-center my-4">
+                            <div class="row tyc">
+                                <div class="form-group col-md-12">
+                                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                      
+                                    
+                                    <input type="checkbox" class="custom-control-input" id="customControlInline" formControlName="terminos" required>
+                                    <label class="custom-control-label" for="customControlInline" aria-disabled="true"></label>
+                      
+                                    <a href="" data-toggle="modal" data-target="#terminosYcondiciones" >Acepto las reglas de uso</a>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+  
+                      <div class="form-gruop col-md-12">
+                        <div class="row justify-content-center ">
+                        
+                            <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" >Registrarse</button>
+                        </div>
+                      </div>
+                </div>
+            </div>    
+            
+        </form>
+      </div>
+  
+  
+    </div>
+  
+  </div>
+  
+  
